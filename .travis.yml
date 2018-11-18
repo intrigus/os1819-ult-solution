@@ -175,7 +175,7 @@ script:
     - cd p2/
     
     - make clean
-    - export CFLAGS="-O3 -fsanitize=address"
+    - export CFLAGS="-O3 -fuse-ld=gold -Wl,-fuse-ld=gold -fsanitize=address"
     - make LDFLAGS="-fsanitize=address"
     - base64 -i test_twothreads
     #- ./test_registers
