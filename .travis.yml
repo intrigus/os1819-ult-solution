@@ -178,23 +178,23 @@ script:
     - export CFLAGS="-O3"
     - make
     - base64 -i test_twothreads
-    - ./test_registers
+    #- ./test_registers
     - ./test_twothreads
     
     - make clean
     - export CFLAGS="-O2"
     - make
-    - ./test_registers
+    #- ./test_registers
     - ./test_twothreads
     
     - make clean
     - export CFLAGS="-O1"    
     - make
-    - ./test_registers
+    #- ./test_registers
     - ./test_twothreads
     
     - make clean
     - export CFLAGS="-O0"
     - make
-    - ./test_registers
+    #- ./test_registers
     - ./test_twothreads
