@@ -176,6 +176,7 @@ script:
     
     - make clean
     - export CFLAGS="-O3 -mno-red-zone"
+    - make
     - base64 -i test_twothreads
     #- ./test_registers
     - ./test_twothreads
