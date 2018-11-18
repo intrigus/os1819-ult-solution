@@ -1,5 +1,5 @@
 testlib=../testlib
-CFLAGS= -g -W -Wall -std=c99 -fno-stack-protector -I$(testlib) -I.
+CFLAGS += -g -W -Wall -std=c99 -fno-stack-protector -I$(testlib) -I.
 LDFLAGS=
 TARGET= dispatcher
 SRC=    dispatcher.c testlib.c
