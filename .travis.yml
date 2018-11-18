@@ -1,5 +1,11 @@
 language: c
 
+env:
+- CFLAGS="-O3"
+- CFLAGS="-O2"
+- CFLAGS="-O1"
+- CFLAGS="-O0"
+
 matrix:
   include:
     # works on Precise and Trusty
