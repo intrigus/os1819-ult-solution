@@ -1,4 +1,3 @@
-CC=     gcc
 testlib=../testlib
 CFLAGS= -g -W -Wall -std=c99 -fno-stack-protector -I$(testlib) -I.
 LDFLAGS=
