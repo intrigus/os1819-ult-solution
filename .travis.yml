@@ -75,12 +75,7 @@ matrix:
     - os: osx
       osx_image: xcode10
       env:
-        - MATRIX_EVAL="brew install gcc && CC=gcc-7 && CXX=g++-7"
-        
-    - os: osx
-      osx_image: xcode10
-      env:
-        - MATRIX_EVAL="brew install gcc8 && CC=gcc-8 && CXX=g++-8"
+        - MATRIX_EVAL="brew install gcc && CC=gcc-8 && CXX=g++-8"
         
     - os: osx
       osx_image: xcode6.4
@@ -172,40 +167,32 @@ matrix:
             - clang-5.0
       env:
         - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
-        
-    # works on Trusty
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - llvm-toolchain-trusty-6.0
-          packages:
-            - clang-6.0
-      env:
-        - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
-
 
 before_install:
     - eval "${MATRIX_EVAL}"
 
 script:
     - cd p2/
-
+    
+    - make clean
     - export CFLAGS="-O3"
     - make
     - ./test_registers
     - ./test_twothreads
     
+    - make clean
     - export CFLAGS="-O2"
     - make
     - ./test_registers
     - ./test_twothreads
     
+    - make clean
     - export CFLAGS="-O1"    
     - make
     - ./test_registers
     - ./test_twothreads
     
+    - make clean
     - export CFLAGS="-O0"
     - make
     - ./test_registers
