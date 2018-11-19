@@ -97,7 +97,7 @@ void initThreads()
  * parkThread() then lets the thread indefinitely yield() so we do not need to
  * perform any clean up. We thus do not really terminate the thread.
  */
-void _parkThread()
+inline void _parkThread()
 {
     while (1) yield();
 }
