@@ -97,7 +97,7 @@ void initThreads()
  * parkThread() then lets the thread indefinitely yield() so we do not need to
  * perform any clean up. We thus do not really terminate the thread.
  */
-inline void _parkThread()
+ void _parkThread()
 {
     while (1) yield();
 }
@@ -124,7 +124,7 @@ static void _scheduleNextThread()
 /*
  * Switches to the next thread.
  */
-void yield()
+extern inline void yield()
 {
     // Apply a scheduling policy to decide which user-level thread to run next.
     // This will update _currentThread to the next thread!
