@@ -174,12 +174,15 @@ before_install:
 script:
     - sudo apt-get install ccache cmake make g++-multilib gdb  pkg-config coreutils python3-pexpect python-pexpect manpages-dev git ninja-build capnproto libcapnp-dev
     - git clone https://github.com/mozilla/rr.git
+    - cd rr
     - mkdir obj
     - cd obj
     - CC=clang CXX=clang++ cmake -G Ninja ..
     - cmake --build .
     - cmake --build . --target test
     - sudo cmake --build . --target install
+    - cd ..
+    - cd ..
     - cd p2/
     
     - make clean
