@@ -106,7 +106,7 @@ void initThreads()
  * Update the _currentThread variable to whatever thread should be next. This
  * function implements the scheduling policy for the user-level threads.
  */
-__attribute__((noinline)) static void _scheduleNextThread()
+ static void _scheduleNextThread()
 {
     assert(_threads[_currentThread].state == STATE_RUNNING);
 
