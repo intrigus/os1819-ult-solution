@@ -106,7 +106,7 @@ void initThreads()
  * Update the _currentThread variable to whatever thread should be next. This
  * function implements the scheduling policy for the user-level threads.
  */
-static void _scheduleNextThread()
+__attribute__((noinline)) static void _scheduleNextThread()
 {
     assert(_threads[_currentThread].state == STATE_RUNNING);
 
@@ -124,7 +124,7 @@ static void _scheduleNextThread()
 /*
  * Switches to the next thread.
  */
-extern inline void yield()
+ void yield()
 {
     // Apply a scheduling policy to decide which user-level thread to run next.
     // This will update _currentThread to the next thread!
