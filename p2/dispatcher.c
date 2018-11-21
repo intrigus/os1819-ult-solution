@@ -100,7 +100,8 @@ void initThreads()
  void _parkThread()
 {
     while (1) {
-        printf("in parkThread yield()");
+        printf("In parkThread() from thread %d with sp near %p\n",
+        _currentThread, &_currentThread);
         yield();
     }
 }
