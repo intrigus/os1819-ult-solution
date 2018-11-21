@@ -99,7 +99,10 @@ void initThreads()
  */
  void _parkThread()
 {
-    while (1) yield();
+    while (1) {
+        printf("in parkThread yield()");
+        yield();
+    }
 }
 
 /*
