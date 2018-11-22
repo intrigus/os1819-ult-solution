@@ -128,7 +128,7 @@ void initThreads()
 /*
  * Switches to the next thread.
  */
- void yield()
+ __attribute__((returns_twice)) void yield()
 {
     // Apply a scheduling policy to decide which user-level thread to run next.
     // This will update _currentThread to the next thread!
